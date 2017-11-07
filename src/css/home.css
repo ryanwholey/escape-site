@@ -9,6 +9,20 @@
     flex-direction: column;
 }
 
+.room-1 {
+	/* background: url('/bundles/room1.jpg');
+	background-size: 100%;
+    background-position: 60% 40%; */
+}
+
+.room-2 {
+	background: url('/bundles/room2.jpg');
+}
+
+.room-3 {
+	background: url('/bundles/room3.jpg');
+}
+
 .home-container {
 	padding-top: 2rem ;
 }
