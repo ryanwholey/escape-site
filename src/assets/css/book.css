@@ -1,0 +1,75 @@
+.booking-list-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.booking-list {
+    overflow-y: scroll;
+    height: 350px;
+    scroll-behavior: smooth;
+    outline: #DDD solid 2px;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+}
+
+.booking-list li {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    border-bottom: #DDD solid 2px;
+    padding: 2rem;
+    margin: 0;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.booking-list li:hover {
+	background: lightgrey;
+
+}
+.next-arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    height: 0px;
+}
+
+.next-arrow-right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.next-arrow-left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.next-arrow-up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.next-arrow-down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}

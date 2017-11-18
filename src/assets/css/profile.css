@@ -1,0 +1,13 @@
+.profile-image-container img {
+	height: 200;
+	width: 200;
+}
+
+.profile-image__username {
+	text-align: center;
+	font-size: 18px;
+}
+
+.profile-image-container button {
+	width: 100%;
+}

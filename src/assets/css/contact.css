@@ -1,0 +1,30 @@
+.button {
+	width: 100%;
+}
+@media (min-width: 550px) {
+
+	.email-container {
+		padding: 0 0 0 2rem;
+	}
+	.button {
+		width: inherit;
+	}
+}
+
+.name-container input {
+	width: 100%;
+}
+
+.email-container input {
+	width: 100%;
+}
+
+.content {
+	width: 100%;
+}
+
+@media (min-width: 400px) {}
+@media (min-width: 550px) {}
+@media (min-width: 750px) {}
+@media (min-width: 1000px) {}
+@media (min-width: 1200px) {}

@@ -1,0 +1,22 @@
+.login-form input{
+	width: 100%;
+}
+.button-container {
+	text-align: center;
+	padding: 2rem 0 0 0;
+}
+
+
+.button {
+	width: 100%;
+}
+
+@media (min-width: 550px) {
+	.login-container div {
+	    width: 50%;
+	    margin: auto;
+	}
+	.button {
+		width: auto;
+	}
+}

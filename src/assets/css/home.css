@@ -1,0 +1,81 @@
+.hero-image {
+	height: 400px;
+	justify-content: space-between;
+	align-items: center;
+
+	display: flex;
+	-webkit-transition: opacity 400ms linear;
+	-moz-transition: opacity 400ms linear;
+	-o-transition: opacity 400ms linear;
+	-ms-transition: opacity 400ms linear;
+	transition: opacity 400ms linear;
+}
+.arrow {
+	width: 0;
+	height: 0;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	cursor: pointer;
+}
+.arrow-left {
+	border-right: 25px solid #ddd;
+	padding-left: 2rem;
+}
+.arrow-right {
+	border-left: 25px solid #ddd;
+	padding-right: 2rem;
+}
+
+.room-1 {
+	background: url('/bundles/room1.jpg');
+	background-size: 100%;
+	background-position: 60% 40%;
+	
+}
+
+.room-2 {
+	background: url('/bundles/room2.jpg');
+}
+
+.room-3 {
+	background: url('/bundles/room3.jpg');
+}
+
+.home-container {
+	padding-top: 2rem ;
+}
+
+.room-container {
+	padding-bottom: 3rem;
+}
+
+.room-container img {
+	max-width:100%;
+	max-height:100%;
+	display: none;
+}
+
+.home-container .button {
+	width: 100%;
+}
+
+.book-button-container {
+	display: flex;
+	justify-content: center;
+}
+
+@media (min-width: 550px) {
+	.home-container .button {
+		width: auto;
+	}
+}
+
+
+@media (min-width: 750px) {
+	.room-container img {
+		display: inline;
+	}
+
+}
+
+

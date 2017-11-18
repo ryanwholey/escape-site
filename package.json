@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server",
+    "start": "nodemon --watch server/ --ignore server/db.json server/server",
+    "start:local": "HOST=10.0.0.114 nodemon server/server",
     "build": "webpack",
     "watch": "webpack --watch",
     "clean": "rm -rf build",
-    "db": "json-server db/data.json --port 4000"
+    "db": "json-server server/db.json --port 3000"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +18,12 @@
   "dependencies": {
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
     "json-server": "^0.12.0",
-    "morgan": "^1.9.0"
+    "moment": "^2.19.2",
+    "morgan": "^1.9.0",
+    "os-locale": "^2.1.0",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -29,6 +34,7 @@
     "file-loader": "^1.1.5",
     "nodemon": "^1.12.1",
     "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
     "webpack": "^3.8.1"
   }
 }

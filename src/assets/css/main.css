@@ -1,21 +1,20 @@
+
 .global-header {
-	padding: 2rem 3rem 0rem 3rem;
-}
-.global-header h1 {
-	text-align: center;
-	font-size: 36px;
+	padding: 2rem 0rem 0rem 0rem;
 }
 
-@media (min-width: 550px) {
-	.global-header h1 {
-		text-align: left;
-	}
+.logo-container {
+	color: black;
+}
+.logo-container h1 {
+	text-align: center;
+	font-size: 36px;
 }
 
 .nav-list {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 0 !important;
+	margin-bottom: 0;
 	align-self: center;
 	padding-top: 10px;
 }
@@ -26,34 +25,50 @@
 
 .nav-item a {
 	text-decoration: none;
+	padding: 0 5px 0 5px;
+
+	-webkit-transition: color 500ms, -webkit-transform 500ms;
+	transition: color 500ms, transform 500ms;
+}
+
+.active-link {
+	color: palevioletred;
+}
+.nav-item a:hover {
+	color: palevioletred;
 }
 
 .user-icon {
 	width: 40px;
 	height: 40px;
 }
+
 .nav-item__profile {
 	display: inline;	
 }
 
+
+.profile-menu {
+	display: none;
+/*	margin: -2rem 0 2rem 2rem;
+    padding: 2rem 0 0 0;*/
+}
+
 @media (min-width: 550px) {
+	.global-header h1 {
+		text-align: left;
+	}
+	.profile-menu {
+		display: flex;
+	}
 	.nav-item__profile {
 		display: none;
 	}
 }
 
-.profile-menu {
-	display: none;
-}
-
-@media (min-width: 550px) {
-	.profile-menu {
-		display: flex;
-	}
-}
-
 .global-footer {
 	padding-top: 3rem;
+	margin-top: 2rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -67,4 +82,10 @@
 	width: 25px;
 	height: 25px;
     cursor: pointer;
+}
+.icon-container {
+	width: 130px;
+	padding: 0 0 2rem 0;
+	display: flex;
+	justify-content: space-between;
 }
