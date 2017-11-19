@@ -17,16 +17,16 @@ import '../css/book.css'
 			.filter((event) => new Date(event.start) > new Date())
 			.map((event) => {
 				const el = document.createElement('li');
-				const date = new Date(event.start);
-				let hour = date.getHours();
-				let ampm = 'am';
-				if (hour > 12) {
-					hour -= 12;
-					ampm = 'pm';
-				}
-				const dateString = date.toLocaleDateString();
+				// const date = new Date(event.start);
+				// let hour = date.getHours();
+				// let ampm = 'am';
+				// if (hour > 12) {
+				// 	hour -= 12;
+				// 	ampm = 'pm';
+				// }
+				// const dateString = date.toLocaleDateString();
 
-				el.innerHTML = `<span>${dateString} ${hour} ${ampm}</span><i class="next-arrow next-arrow-right"></i>`;
+				el.innerHTML = `<span>${event.startHuman}</span><i class="next-arrow next-arrow-right"></i>`;
 				return el;
 			})
 			.forEach((eventEl) => listEl.appendChild(eventEl));

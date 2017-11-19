@@ -1,6 +1,7 @@
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('db.json')
+const path = require('path');
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router(path.resolve(__dirname, './db.json'));
 const middlewares = jsonServer.defaults();
 const DEFAULT_PORT = 3000;
 
@@ -18,8 +19,9 @@ if (portInfo.length) {
 	port = DEFAULT_PORT;
 }
 
-server.use(middlewares)
-server.use(router)
+server.use(middlewares);
+server.use(router);
 server.listen(port, () => {
   	console.log('JSON Server is running on port ', port);
+  	
 });

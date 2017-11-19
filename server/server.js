@@ -128,7 +128,7 @@ app.get('/book', function(req, res) {
 	if (!req.query.game) {
 		return res.redirect('/book?game=1');
 	}
-	const gameId = parseInt(req.qeury.game, 10);
+	const gameId = parseInt(req.query.game, 10);
 	const eventsData = api.getEventsData(gameId);
 	const gameData = api.getGameData(gameId);
 	
