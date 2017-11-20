@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm install
+#npm install
 npm run build
 export DB_PORT=2000
 export PORT=4000

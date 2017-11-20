@@ -6,6 +6,7 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser')
 const session = require('express-session');
+const clearRequire = require('clear-require');
 
 const db = require('./dbAPI');
 
@@ -54,7 +55,7 @@ const api = {
 		if (gameId) {
 			gameId = parseInt(gameId, 10);
 		}
-
+		clearRequire('./db.json');
 		const games = require('./db.json').games
 			.filter((game) =>  game.id === gameId);
 

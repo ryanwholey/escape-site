@@ -1,24 +1,12 @@
 const request = require('request');
 const moment = require('moment');
-// const osLocale = require('os-locale');
+const requireClear = require('clear-require')
+
 const DB_HOST = process.env.DB_HOST || 'localhost';
 const DB_PORT = process.env.DB_PORT || 3000;
 
 moment.locale('en');
 
-function zeroDate(date, setHours) {
-	if (typeof date === 'string') {
-		date = new Date(date);
-	}
-	if (setHours) {
-		date.setHours(0);
-	}
-	date.setMinutes(0);
-	date.setSeconds(0);
-	date.setMilliseconds(0);
-
-	return date;
-}
 
 function getMostRecentStartDate(dbData) {
 	const now = moment(new Date()).startOf('DAY').add(12, 'HOURS');
@@ -27,7 +15,7 @@ function getMostRecentStartDate(dbData) {
 		.map((event) => event.start)
 		.reduce((last, startDate) => {
 			if (typeof last === 'string') {
-				last = moment(last);
+				last = moment(new Date(last));
 			}
 			
 			const current = moment(new Date(startDate));
@@ -69,7 +57,21 @@ function getNextTwoWeekDates(dbData) {
 	return dates;
 }
 
+function getEvents() {
+	return new Promise((resolve, reject) => {
+		request({
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			method: 'GET',
+			url: `http://${DB_HOST}:${DB_PORT}/events`,
+		})
+	})
+}
+
 function createUpcomingDates() {
+	requireClear('./db.json');
+
 	const dbData = require('./db.json');
 	const gameIds = dbData.games.map((game) => game.id);
 	const dates = getNextTwoWeekDates(dbData);
@@ -85,14 +87,19 @@ function createUpcomingDates() {
 
 	if (events.length) {
 		events.forEach((event) => {
-			request({
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				method: 'POST',
-				url: `http://${DB_HOST}:${DB_PORT}/events`,
-				body: JSON.stringify(event)
-			});			
+			try{
+				request({
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					method: 'POST',
+					url: `http://${DB_HOST}:${DB_PORT}/events`,
+					body: JSON.stringify(event)
+				});			
+				
+			} catch(err) {
+				console.error('failed to write new event', err);
+			}
 		})
 	}
 }
