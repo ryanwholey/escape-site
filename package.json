@@ -10,7 +10,9 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "clean": "rm -rf build",
-    "db": "json-server server/db.json --port 3000"
+    "db": "json-server server/db.json --port 3000",
+    "deploy:start": "./bin/deploy.sh",
+    "deploy:kill": "./bin/kill-deploy.sh"
   },
   "keywords": [],
   "author": "",
