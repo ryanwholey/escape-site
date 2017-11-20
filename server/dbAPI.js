@@ -21,7 +21,7 @@ function zeroDate(date, setHours) {
 }
 
 function getMostRecentStartDate(dbData) {
-	const now = moment(new Date());
+	const now = moment(new Date()).startOf('DAY').add(12, 'HOURS');
 
 	return dbData.events.concat([{start: now}])
 		.map((event) => event.start)
@@ -49,7 +49,7 @@ function getNextTwoWeekDates(dbData) {
 	const twoWeeksFromNow = moment(new Date()).add(2, 'WEEKS');
 
 	const dates = [];
-	let current = moment(new Date()).startOf('DAY').add(12, 'HOURS');
+	let current = lastStartDate;
 
 	while (current.isBefore(twoWeeksFromNow)) {
 
@@ -60,9 +60,9 @@ function getNextTwoWeekDates(dbData) {
 		} else {
 			current.add(1, 'DAY').startOf('DAY').add(12, 'HOURS');
 		}
-		// dates.push(new Date(current));
-		if (dates.length > 400) {
-			console.error('error');
+		
+		if (dates.length > 5000) {
+			console.error('error: limit on creating new events 5000');
 			break;
 		}
 	}
